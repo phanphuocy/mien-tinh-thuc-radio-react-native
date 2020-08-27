@@ -13,7 +13,7 @@ const RootStack = createStackNavigator();
 function RootNavigator() {
   return (
     <NavigationContainer>
-      <RootStack.Navigator>
+      <RootStack.Navigator headerMode="none">
         <RootStack.Screen name="Browsing" component={BrowsingNavigator} />
         <RootStack.Screen name="Player" component={PlayerScreen} />
       </RootStack.Navigator>

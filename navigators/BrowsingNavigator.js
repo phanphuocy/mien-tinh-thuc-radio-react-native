@@ -3,10 +3,13 @@ import { Text, View, Button } from "react-native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
+// Import navigators, screens
+import HomeNavigator from "./HomeNavigator";
+
 function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Home!</Text>
+      <Text style={{ fontFamily: "sans400" }}>Home!</Text>
       <Button
         title="Open player"
         onPress={() => navigation.navigate("Player")}
@@ -47,7 +50,7 @@ function BrowsingNavigator() {
         inactiveTintColor: "gray",
       }}
     >
-      <BrowsingTabs.Screen name="Home" component={HomeScreen} />
+      <BrowsingTabs.Screen name="Home" component={HomeNavigator} />
       <BrowsingTabs.Screen name="Downloaded" component={DownloadedScreen} />
     </BrowsingTabs.Navigator>
   );
