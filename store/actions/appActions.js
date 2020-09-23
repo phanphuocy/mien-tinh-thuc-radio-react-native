@@ -21,6 +21,16 @@ export const getInitialData = () => async (dispatch) => {
       id: asset.sys.id,
     }));
 
+    let images = {};
+    data.includes.Asset.forEach((asset) => {
+      if (asset.fields.file.contentType === "image/webp") {
+        images[asset.sys.id] = {
+          ...asset.fields.file,
+          title: asset.fields.title,
+        };
+      }
+    });
+
     const tracks = data.items
       .filter((item) => item.sys.contentType.sys.id === "track")
       .map((item) => ({
@@ -43,6 +53,7 @@ export const getInitialData = () => async (dispatch) => {
         tracks,
         assets,
         series,
+        images,
       },
     });
   } catch (error) {

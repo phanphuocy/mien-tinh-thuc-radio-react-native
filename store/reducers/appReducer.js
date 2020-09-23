@@ -4,6 +4,7 @@ const initialState = {
   series: [],
   tracks: [],
   assets: [],
+  images: null,
   loading: true,
   error: null,
 };
@@ -21,6 +22,7 @@ export default (state = initialState, action) => {
         series: action.payload.series,
         tracks: action.payload.tracks,
         assets: action.payload.assets,
+        images: action.payload.images,
         loading: false,
       };
     default:

@@ -2,9 +2,11 @@ import React from "react";
 import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 import { Text } from "../components/Atomics";
 import { useSelector } from "react-redux";
+import series from "../database/series.json";
+import SeriesSlider from "../components/SeriesSlider";
 
 const HomeScreen = ({ navigation }) => {
-  const series = useSelector((state) => state.app.series);
+  // const images = useSelector((state) => state.app.images);
 
   function onSelectedSeries(slug, name, type) {
     navigation.navigate("Series", {
@@ -16,25 +18,25 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.screen}>
-      <Text>This is Home</Text>
-      <FlatList
+      {series.map((serie) => (
+        <SeriesSlider id={serie.slug} name={serie.name} />
+      ))}
+      {/* <FlatList
         data={series}
-        keyExtractor={(series) => series.id}
+        keyExtractor={(series) => series.slug}
         renderItem={({ item }) => (
           <View key={item.slug} style={styles.item}>
             <TouchableOpacity
               onPress={() => onSelectedSeries(item.slug, item.name, item.type)}
             >
-              <Text>
-                {item.type === "main" ? "Chuỗi Radio" : "Chuỗi Số Phụ"}
-              </Text>
+              <Text>{item.type}</Text>
               <Text style={styles.title} serif>
                 {item.name}
               </Text>
             </TouchableOpacity>
           </View>
         )}
-      />
+      /> */}
     </View>
   );
 };

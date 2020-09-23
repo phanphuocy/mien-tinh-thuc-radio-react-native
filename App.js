@@ -15,7 +15,9 @@ import { AppLoading } from "expo";
 function Main(props) {
   let [fontsLoaded] = useFonts({
     serif400: require("./assets/fonts/JosefinSans-Regular.ttf"),
+    serif600: require("./assets/fonts/JosefinSans-SemiBold.ttf"),
     sans400: require("./assets/fonts/Lato-Regular.ttf"),
+    sans600: require("./assets/fonts/Lato-Bold.ttf"),
   });
 
   let isAppLoading = useSelector((state) => state.app.loading);

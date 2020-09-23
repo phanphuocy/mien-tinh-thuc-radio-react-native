@@ -1,0 +1,8 @@
+[
+  { "name": "Bình Yên Giữa Biến Động", "slug": "bygbd", "type": "Chuỗi Radio" },
+  {
+    "name": "Bình Yên Giữa Biến Động",
+    "slug": "bygbdSup",
+    "type": "Chuỗi Số Phụ"
+  }
+]

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, FlatList, Image } from "react-native";
 import { Text } from "../components/Atomics";
 import { useSelector } from "react-redux";
 
@@ -13,17 +13,14 @@ const SeriesScreen = ({ route, navigation }) => {
         keyExtractor={(track) => track.id}
         renderItem={({ item }) => (
           <View key={item.slug} style={styles.item}>
-            <Text style={styles.title}>{item.title}</Text>
+            {/* <Text>{JSON.stringify(item.coverArt)}</Text> */}
+            <Text style={styles.title} bold>
+              Số Thứ {item.trackOrder}: {item.title}
+            </Text>
             <Text numberOfLines={4}>{item.excerpt}</Text>
           </View>
         )}
       />
-      {/* {tracks.map((el) => (
-          <View key={el.slug} style={styles.item}>
-            <Text style={styles.title}>{el.title}</Text>
-            <Text>{el.excerpt}</Text>
-          </View>
-        ))} */}
     </View>
   );
 };
@@ -34,11 +31,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   item: {
-    marginVertical: 8,
-    padding: 8,
+    marginVertical: 0,
+    padding: 16,
   },
   title: {
-    fontSize: 21,
+    fontSize: 24,
+    lineHeight: 32,
+    marginBottom: 8,
   },
 });
 
